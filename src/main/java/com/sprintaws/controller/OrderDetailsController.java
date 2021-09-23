@@ -22,10 +22,29 @@ import com.sprintaws.service.IOrderServiceImpl;
 
 
 @RestController
-@RequestMapping("/order")
 public class OrderDetailsController {
 	@Autowired
 	IOrderServiceImpl orderService;
+	
+
+
+	@PostMapping("/order")
+	public void addOrder(@RequestBody OrderDetails order) {
+		 orderService.addOrder(order);
+	}
+	
+	
+	@PutMapping("/order")
+	public  OrderDetails updateOrder(@RequestBody OrderDetails order) {
+		return orderService.updateOrder(order);
+	}
+	 
+	
+	
+	@DeleteMapping("/order/{orderid}")
+	public void deleteOrder(@PathVariable int orderid) {
+		orderService.removeOrder(orderid);
+	}
 	
 	
 //	@GetMapping
@@ -36,28 +55,16 @@ public class OrderDetailsController {
 //	@GetMapping
 //	public List<OrderDetails>  viewAllOrders(Restaurant res){
 //		return orderService.viewAllOrders(res);
-//	}
+	//}
+//	
+	  
+	
+	
+	@GetMapping( "/{id}")    
+	public OrderDetails viewOrder(@PathVariable int id) {
+	    return orderService.viewOrder(id);
+	}
 	
 
-	@PostMapping
-	@ResponseStatus(HttpStatus.CREATED)
-	public OrderDetails addOrder(@RequestBody OrderDetails order) {
-		return orderService.addOrder(order);
-	}
-	
-	
-	@PutMapping
-	public  OrderDetails updateOrder(@RequestBody OrderDetails order) {
-		return orderService.updateOrder(order);
-	}
-	
-	
-	@DeleteMapping("/{id}")
-	@ResponseStatus(HttpStatus.OK)
-	public void removeOrder(OrderDetails order) {
-		orderService.removeOrder(order);
-	}
-	
-	
 	
 }

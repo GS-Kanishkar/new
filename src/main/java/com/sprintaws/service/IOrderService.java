@@ -10,12 +10,10 @@ import com.sprintaws.entity.OrderDetails;
 public interface IOrderService 
 {
 	public OrderDetails addOrder(OrderDetails order);
-//	public OrderDetails updateOrder(OrderDetails order);
-	//public void removeOrder(OrderDetails order);
-	//public OrderDetails viewOrder(OrderDetails order);
-	//public OrderDetails  findOrderById(int order);
-	
-//	public Optional<OrderDetails> findOrderById(int order);
+	public OrderDetails updateOrder(OrderDetails order);
+	public void removeOrder(int orderid);
+	public OrderDetails viewOrder(int orderid);
 	//public List<OrderDetails> viewAllOrders(Restaurant res);
-//	public List<OrderDetails> viewAllOrders(Customer customer);
+	//public List<OrderDetails> viewAllOrders(Customer customer);
 }
+

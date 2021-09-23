@@ -2,26 +2,39 @@ package com.sprintaws.entity;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
-//import com.sprintaws.entity.FoodCart;
+import com.sprintaws.entity.FoodCart;
+
+
+
 
 @Entity
-@Table(name="orders")
+@Table(name="orders_master")
 public class OrderDetails 
 {
-
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int orderId;
+	
+	@Column(name="order_date") 
 	private LocalDateTime orderDate;
-	//FoodCart cart;
+	
+	
+	@Column(name="order_status")
 	private String orderStatus;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "cartId", referencedColumnName = "cartid")
+	private FoodCart cart;
 	
 	public int getOrderId() 
 	{
@@ -39,14 +52,14 @@ public class OrderDetails
 	{
 		this.orderDate = orderDate;
 	}
-//	public FoodCart getCart()
-//	{
-//		return cart;
-//	}
-//	public void setCart(FoodCart cart) 
-//	{
-//		this.cart = cart;
-//	}
+	public FoodCart getCart()
+	{
+		return cart;
+	}
+	public void setCart(FoodCart cart) 
+	{
+		this.cart = cart;
+	}
 	public String getOrderStatus() 
 	{
 		return orderStatus;

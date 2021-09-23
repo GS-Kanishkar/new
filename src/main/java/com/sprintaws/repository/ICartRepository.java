@@ -1,14 +1,12 @@
 package com.sprintaws.repository;
 
-import java.util.Optional;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.sprintaws.entity.OrderDetails;
-
+import com.sprintaws.entity.FoodCart;
 
 @Repository
-public interface IOrderRepository extends JpaRepository<OrderDetails,Integer>{
-	
+public interface ICartRepository extends JpaRepository<FoodCart,Integer> {
+
 }
+

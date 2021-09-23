@@ -20,14 +20,14 @@ public class SwaggerController {
 	public Docket api() {
 		return new Docket(DocumentationType.OAS_30)
 				.select()
-				.apis(RequestHandlerSelectors.basePackage("com.jpa"))
+				.apis(RequestHandlerSelectors.basePackage("com.sprintaws"))
 				.paths(PathSelectors.any())
 				.build().apiInfo(apiEndPointInfo());
 	}
 	
 	public ApiInfo apiEndPointInfo() {
-		return new ApiInfoBuilder().title("Spring Boot Project REST API")
-				.contact(new Contact("Rest Api", "www.google.com", "ganeshkrish31079@gmail.com"))
+		return new ApiInfoBuilder().title("Online FoodDelivery Application")
+				.contact(new Contact("Rest Api", "www.google.com", "gskanishkar10@gmail.com"))
 				.license("Apache 2.0")
 				.licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html")
 				.version("0.0.1-SNAPSHOT")
@@ -35,6 +35,4 @@ public class SwaggerController {
 	}
 
 }
-
-
 
